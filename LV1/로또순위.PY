@@ -66,6 +66,7 @@ def solution(lottos,win_nums):
             
     max_rank =rank[max_rank-zero_count]
     min_rank =rank[min_rank]
+    
     print(max_rank,min_rank)
     return [max_rank,min_rank]
     
