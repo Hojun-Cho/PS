@@ -19,3 +19,20 @@ def solution(id_list, report, k):
                 answer[i] += 1 
     return answer
 
+
+### 깔끔한 풀이
+def solution(id_list, report, k):
+    count = {} #신고당한 사람 이름,신고당한 수 
+    answer = [0]*len(id_list)
+    
+    for users in set(report):
+        a,b = users.split()
+        count[b] = (count[b] +1) if  count.get(b) else 1
+        
+    for r in set(report) : 
+        if count[r.split()[1]] >= k:
+            answer[id_list.index(r.split()[0])] +=1 
+            
+    return answer
+
+
