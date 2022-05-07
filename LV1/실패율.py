@@ -42,3 +42,5 @@ def solution(N, stages):
     # value 값을 기준으로 정렬 
     return sorted(result, key=lambda x : result[x], reverse=True)
 
+x=[1,2,3,4]
+x.

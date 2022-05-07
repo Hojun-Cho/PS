@@ -19,7 +19,7 @@ def solution(id_list, report, k):
                 answer[i] += 1 
     return answer
 
-
+# https://programmers.co.kr/learn/courses/30/lessons/92334
 ### 깔끔한 풀이
 def solution(id_list, report, k):
     count = {} #신고당한 사람 이름,신고당한 수 
