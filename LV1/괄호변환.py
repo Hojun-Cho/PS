@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 def isbalanced(s) :
+=======
+def isbalanced(s) : # 균형인지 확인한다.
+>>>>>>> 768af0be5cf2ad195bec88e38faab60ae66a565a
     chk = 0
     for c in s :
         if c=='(' : 
@@ -8,6 +12,7 @@ def isbalanced(s) :
     if chk == 0 :
         return True 
     return False 
+<<<<<<< HEAD
 def iscorrect(s):
 	stack=[]
 	stack.append(s[0])
@@ -20,6 +25,23 @@ def iscorrect(s):
 	else: return False
 
 
+=======
+
+def iscorrect(p):
+    stack = []
+    _len = 0 
+    for c in p:
+        if c == '(':
+            stack.append(c)
+            _len +=1 
+        else:
+            if  _len == 0:
+                return False
+            elif stack[-1] == '(':
+                stack.pop()
+                _len -= 1
+    return False if _len >0  else True
+>>>>>>> 768af0be5cf2ad195bec88e38faab60ae66a565a
 def solution(p) :
     answer = '' 
     u= ""
@@ -31,7 +53,11 @@ def solution(p) :
             u = p[0:i] 
             v = p[i:len(p)]
             break 
+<<<<<<< HEAD
     # u 는 균형잡힌 문자열
+=======
+    # u 는 올바른 문자열이 아니라면 
+>>>>>>> 768af0be5cf2ad195bec88e38faab60ae66a565a
     if iscorrect(u) :
         answer += u+ solution(v) 
     else :
@@ -42,6 +68,7 @@ def solution(p) :
             else :
                 answer += ')'
     return answer 
+<<<<<<< HEAD
 
     #################################################
 def isbalanced(s) :
@@ -90,3 +117,5 @@ def solution(p) :
             else :
                 answer += ')'
     return answer 
+=======
+>>>>>>> 768af0be5cf2ad195bec88e38faab60ae66a565a
