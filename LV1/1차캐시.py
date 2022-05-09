@@ -15,7 +15,6 @@ def solution(cacheSize, cities):
             # 캐시에 들어있다는 의미 
             # 현재 값을 가장 앞에 둬야함 
                 answer +=1 
-                index = stack.index(city)
                 stack.remove(city)
                 stack.appendleft(city)
         else : #아직 등록된 도시가 아닌경우, 캐시에 없는 경우 
@@ -30,3 +29,20 @@ def solution(cacheSize, cities):
  
     return answer
 
+## 깔끔한 풀이
+def solution(cacheSize, cities):
+    import collections
+    cache = collections.deque(maxlen=cacheSize)
+    answer  = 0
+    for city in cities :
+        city =  city.upper() 
+        if city in cache :
+            answer +=1 
+            cache.remove(city)
+            cache.append(city)
+        else :
+            answer +=5
+            cache.append(city) 
+    return answer 
+            
+            
