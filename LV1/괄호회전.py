@@ -28,7 +28,4 @@ def solution(s):
         q.append(q.popleft())
     return answer
 
-<<<<<<< HEAD
 solution("[](){}")
-=======
->>>>>>> 768af0be5cf2ad195bec88e38faab60ae66a565a
