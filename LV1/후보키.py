@@ -1,16 +1,12 @@
 from  itertools import combinations
-# 보다적은후보키가나오면사용 xx
 rel={}
 def get(arr,key,ben):
     result = []
-    _len = len(key)
-    for i in range(_len):
+    for i in range(len(key)):
         for x in combinations(key,i+1):
             if rel.get(x) :
                 return 0;
-    for i in key:
-        result.append(arr[i])
-        
+    result = [ arr[i] for i in key ]        
     return ''.join(result)
     
             
@@ -22,15 +18,15 @@ def solution(relation):
     arr = [i for i in range(0,col)]
     ben = [False for _ in range(col)]
     answer = 0
-    relation.sort()
   
+    # 유일성이 없는 키를 기억
     for i in range(col):
-        last = -1 
+        last = {}
         for j in range(row):
-            if last == relation[j][i] :
+            if last.get(relation[j][i]) :
                 ben[i] =True
                 break;
-            last =relation[j][i]
+            last[i] = 1
 
 
     for i in range(col):
@@ -42,16 +38,11 @@ def solution(relation):
                 temp = get(relation[j],x,ben)
                 if not temp or  dic.get(temp) :
                     result =False
-                    break
+                    break # 유일성이 없는 경우 
                 dic[temp]=1
                     
             if result : 
                 rel[x] = 1 
-                answer = max(answer,i+1)
-            else : 
-                rel[x]=0
-    return answer 
+                answer +=1 
 
-
-
-print(solution([["100","ryan","music","2"],["200","apeach","math","2"],["300","tube","computer","3"],["400","con","computer","4"],["500","muzi","music","3"],["600","apeach","music","2"]]));
+    return answer
