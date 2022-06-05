@@ -21,3 +21,14 @@ def solution(routes):
             answer +=1 
             start,end = temp_s,temp_e
     return answer
+
+
+def solution_2(routes):
+    answer = 0
+    routes.sort(key=lambda x:x[1])
+    cam = -30001
+    for start,end in routes :
+        if cam  < start :
+            answer +=1 
+            cam = end 
+    return answer 
