@@ -22,3 +22,25 @@ def solution(numbers, target):
     for i,n in enumerate(numbers):
         dfs(numbers,0,0,'',target,[False for _ in range(length)],i)
     return len(set(answer))
+### 위의 풀이는 시간 초과 ### 
+answer = 0
+length = 0
+numbers = []
+target= 0
+def dfs(now_sum,now_index,now_len):
+    global length ,numbers,target,answer
+    if  now_len == length and now_sum == target  :
+        answer +=1 
+        return
+    if now_index > length-1 :
+        return 
+    dfs(now_sum+numbers[now_index],now_index+1,now_len+1)
+    dfs(now_sum-numbers[now_index] ,now_index+1,now_len+1)
+    
+def solution(_input, _target):
+    global length ,numbers,target,answer
+    target = _target
+    numbers = _input;
+    length = len(numbers)
+    dfs(0,0,0)
+    return answer
