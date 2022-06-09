@@ -21,3 +21,21 @@ def solution(prices):
         i= stack.pop()
         answer[i]= length - 1 - i 
     return answer
+
+### 깔끔하게 풀어보기 ### 
+def solution(prices):
+    stack  = []
+    length = len(prices)
+    answer = [0 for _ in range(length)]
+    
+    def runIfBiggerThenNowIndex(i,price):
+        while stack and prices[stack[-1]] > price:
+            j= stack.pop()
+            answer[j]=i-j
+        stack.append(i)
+    def setAnswer(i):
+        answer[i] = length-1-i
+        
+    [ runIfBiggerThenNowIndex(i,price)  for i,price in enumerate(prices)]
+    [ setAnswer(i) for i in stack ]
+    return answer
