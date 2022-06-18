@@ -9,3 +9,10 @@ def solution(n):
     while (bin(num)[2:]).count('1') !=  count_1 :
         num+=1 
     return num
+def solution(n):
+    num= n+1
+    n = bin(n)[2:]
+    count_1  = n.count('1')
+    while (bin(num)[2:]).count('1') !=  count_1 :
+        num+=1 
+    return num
