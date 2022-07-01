@@ -24,7 +24,7 @@ def solution(orders, course):
 
     return answer
 
-### 시간초과 풀이 
+### 시간초과 풀이  => 순열을 조합으로 바꾸면 문제가 해결된다 
 import itertools
 import collections 
 
