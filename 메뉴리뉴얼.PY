@@ -49,3 +49,23 @@ def solution(orders, course):
                 break
     return sorted(answer)
 
+### 계속 순열로 시도해서 중복이 발생했다 , 조합으로 중복을 제거하자 
+import itertools
+import collections 
+
+def solution(orders, course):
+    answer = []
+    for c in course :
+        entry = [] 
+        for order in orders : 
+            for x in itertools.combinations(order,c) : 
+                result = ''.join(sorted(x)) 
+                entry.append(result) 
+        result = collections.Counter(entry).most_common()
+        for menu,count in result :
+            if count == result[0][1] and count >=2  :
+                answer.append(menu)
+                now = count 
+            else :
+                break
+    return sorted(answer)
