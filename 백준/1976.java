@@ -6,8 +6,6 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static final int CONNECTED = 1;
-    private static Map<Integer, Map<Integer, Boolean>> maps = new HashMap<>(new HashMap<>());
-    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static StringTokenizer st;
     private static int[] node;
     private static int N;
