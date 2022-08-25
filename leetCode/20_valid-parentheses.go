@@ -15,12 +15,10 @@ func isValid(s string) bool {
 			arr = append(arr, c)
 		} else if length := len(arr); length <= 0 {
 			return false
+		} else if close[c] == arr[length-1] {
+			arr = arr[:length-1]
 		} else {
-			if close[c] == arr[length-1] {
-				arr = arr[:length-1]
-			} else {
-				return false
-			}
+			return false
 		}
 	}
 	return len(arr) == 0
