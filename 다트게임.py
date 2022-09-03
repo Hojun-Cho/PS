@@ -16,3 +16,22 @@ def solution(dartResult):
                 answer[-2] *=2
         
     return sum(answer)
+
+
+def solution(dartResult: str)-> int:
+    bounsMap = { "T" : 3 , "D" : 2 ,"S" : 1}
+    nums = [0] 
+    for s in dartResult:
+        if bounsMap.get(s) != None :
+            nums.append(nums[-1]**bounsMap[s])
+            nums.append(0)
+        elif s == "*" :
+            nums[-2] *=2 
+            if len(nums) >2 :
+                nums[-3] *= 2
+        elif s == "#":
+            nums[-2] *= -1
+        else :
+            nums[-1] = nums[-1] * 10 + int(s)
+
+    return sum(nums)
