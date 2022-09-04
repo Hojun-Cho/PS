@@ -5,18 +5,12 @@ class Solution:
         answer: List[List[int]] = [] 
         candidates.sort()
         length = len(candidates)
-        def perm(index,sum: int,arr: List[int]) -> None:
+        def dfs(remain,index: int, stack: List[int])-> None:
+            if remain == 0 :
+                answer.append(stack)
             for i in range(index,length):
-                if sum + candidates[i] > target : 
+                if candidates[i] > remain :
                     return 
-                elif sum + candidates[i]  == target :
-                    answer.append(arr+[candidates[i]])
-                    return 
-                else :
-                    if index == i :
-                        perm(index, sum+candidates[i] , arr+ [candidates[i]])
-                    else :
-                        perm(i, sum+candidates[i] , arr+ [candidates[i]])
-
-        perm(0,0,[])
+                dfs(remain - candidates[i],i,stack + [candidates[i]])
+        dfs(target,0,[])
         return answer 
