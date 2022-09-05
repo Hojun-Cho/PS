@@ -22,7 +22,7 @@ class Solution:
                 matrix[i][k] = 0 
                 
                 
-# 매번 행,열을 확인하며 0으로 바꿔줄 필요가 없다
+# 매번 자신보다 작은 행,작은 열을 확인하며 0으로 바꿔줄 필요가 없다
 # O(n-1 * m-1)
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
