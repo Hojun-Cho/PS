@@ -11,8 +11,8 @@ class Solution:
             if x == 0 :
                 break 
             answer *= 10 
-        # int32의 범위를 초과
+        answer *= sign
         if answer  < -2 **31 or answer  > (2**31) -1 :
             return 0 
         # 원래 부호를 곱한다
-        return answer * sign 
+        return answer
