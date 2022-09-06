@@ -47,3 +47,4 @@ class Solution:
             answer = max(answer,s[left+1:right],key = len)
         return answer 
             
+핵심은 홀수블럭과 짝수 블록을 생성하고 그 블럭을 기준올 좌우를 
