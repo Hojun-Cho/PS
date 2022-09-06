@@ -11,9 +11,8 @@ class Solution:
                 end = mid -1 
             else :
                 start = mid + 1
-         # start가 end를 넘어가면 end의 의미는 target보다 작은 값의 index
-         # 그게 아니라면 end는 현재 target이 들어올 위치 
-        return end+1 if start > end else end
+         # start에는 현재 target이 들어가는 index가 담겨있다
+        return start
         
 
 class Solution:
