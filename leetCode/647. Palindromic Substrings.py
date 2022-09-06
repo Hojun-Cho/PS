@@ -31,3 +31,19 @@ class Solution:
             answer+=check(i,i+1)
             answer+=check(i,i+2)
         return answer + len(s)
+    
+    
+ # 비슷한 문제 https://leetcode.com/problems/longest-palindromic-substring/
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        length =  len(s)
+        answer = ""
+        for i in range(length * 2 -1) :
+            left = i//2
+            right = i//2 + i%2 
+            while left >=0 and right < length and s[left] == s[right]:
+                left -=1
+                right +=1 
+            answer = max(answer,s[left+1:right],key = len)
+        return answer 
+            
