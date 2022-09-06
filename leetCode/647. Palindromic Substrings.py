@@ -16,7 +16,7 @@ class Solution:
                 right +=1 
         return result
      
-# 2,3 슬라이딩 윈도우를 이용한 풀이 
+# 2,3 슬라이딩 윈도우를 이용한 풀이 ,더 명확하다, 시간 복잡도는 동일 !!
 class Solution:
     def countSubstrings(self, s: str) -> int:
         def check(left: int,right: int)-> int:
