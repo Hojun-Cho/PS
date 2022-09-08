@@ -1,4 +1,5 @@
 class Solution:
+    # 이 코드가 느린 이유 : num = 1, k = 100000000001 경우를 생각하자
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
         answer = []
         carry = 0 
