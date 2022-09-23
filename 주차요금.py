@@ -1,3 +1,33 @@
+from collections import defaultdict
+import math
+
+
+def solution(fees, records):
+    answer = []
+    cars ={}
+    costs = defaultdict(int) 
+    for fee in records:
+        time,num,inout=fee.split(" ")
+        h,m = time.split(":")
+        time = int(h) * 60  + int(m)
+        if num in cars :
+            costs[num] += time - cars[num] 
+            del cars[num]
+        else :
+            cars[num] =time 
+    end = int(23) * 60 + 59
+    for key,val in cars.items() :
+        costs[key] += end - val 
+     
+    fees = [int(fee) for fee in fees]
+    answer = defaultdict(int)
+    for key,cost in costs.items() :
+        if cost <= fees[0]:
+            answer[int(key)] = fees[1] 
+        else :
+            answer[int(key)] = fees[1] +(( math.ceil((cost - fees[0])/fees[2]) *fees[3]))
+    return [val[1] for val in sorted(answer.items())]
+    
 import re 
 import math
 def solution(fees, records):
