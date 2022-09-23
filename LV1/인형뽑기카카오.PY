@@ -1,28 +1,34 @@
+Board = [] 
+Height = 0 
 def solution(board, moves):
-    answer = 0
+    global Board,Height
+    Board,Height = board ,len(board)
     stack = []
-    stack_len=0
-    N = len(board[0])
-    
-    for i,n in enumerate(moves):
-        n-=1
-        j=0
-        while j<N :
-            if board[j][n] == 0 :
-                j+=1 
-            elif board[j][n] >0 :
-                now_num= board[j][n] 
-                if stack_len>0 and stack[-1] ==now_num :
-                    stack.pop()
-                    stack_len-=1
-                    answer +=2 
-                else :
-                    stack.append(now_num)
-                    stack_len +=1
-                    
-                board[j][n] = 0 
-                break
-
-                
+    answer = 0
+    for row in moves:
+        result = pull_up(row-1)
+        if result != 0 :
+            answer+=push(stack,result)
     return answer 
-                
+            
+def pull_up(row):
+    global Board,Height
+    for h in range(Height):
+        if Board[h][row] != 0 :
+            x,Board[h][row] = Board[h][row],0
+            return  x 
+    return 0 
+
+def push(answers,target):
+    index,count= len(answers) -1 ,0
+    while index >= 0 and answers[index] == target :
+        count +=1 
+        index -=1 
+    if count == 0 :
+        answers.append(target)
+        return 0
+    answer = 1 
+    for i in range(count):
+        answers.pop()
+        answer +=1 
+    return answer 
